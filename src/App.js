@@ -10,7 +10,9 @@ class App extends Component{
       account: '',
       contract: null,
       date: "",
-      unixtime : ""
+      unixtime : "",
+      univ2unix : "",
+      univ2date : ""
     }
   }
 
@@ -25,6 +27,7 @@ class App extends Component{
   checkdate = async (userAddress) =>{
     console.log("ENTER ETH ADDRESS : ", userAddress)
     const web3 = window.web3
+    //BPT
     const contract = new web3.eth.Contract(abi, "0xfdAA319A95bA06150Cac68794738130dF077a396")
     const userValue = await contract.methods.lockTime(userAddress).call();
     this.setState({"unixtime": userValue})
@@ -36,6 +39,20 @@ class App extends Component{
     var formattedTime = months[date.getMonth()] + " " + (date.getDate()) + ", " + (date.getFullYear()) +" " +  hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
     this.setState({"date": formattedTime})
+
+    //UNIV V2 : 0xA03c590340B72FEf861Df1Fef1355D18AD60B11D
+    const contract2 = new web3.eth.Contract(abi, "0xA03c590340B72FEf861Df1Fef1355D18AD60B11D")
+    const userValue2 = await contract2.methods.lockTime(userAddress).call();
+  
+    var date2 = new Date(userValue2 * 1000);
+    var hours2 = date2.getHours();
+    var minutes2 = "0" + date2.getMinutes();
+    var seconds2 = "0" + date2.getSeconds();
+
+    var formattedTime = months[date2.getMonth()] + " " + (date2.getDate()) + ", " + (date2.getFullYear()) +" " +  hours2 + ':' + minutes2.substr(-2) + ':' + seconds2.substr(-2);
+
+    this.setState({"univ2date": formattedTime})
+    this.setState({"univ2unix": userValue2})
   }
 
 
@@ -80,23 +97,28 @@ class App extends Component{
           </div>
           <div  className="col-lg-4"></div>
         </div>
-        <div className="row mt-5">
-          <div  className="col-lg-4"></div>
-          <div className='col-lg-4 col-md-12 col-sm-12 mx-auto text-center'>
-            <div>UNIX TIME : <strong>{this.state.unixtime}</strong></div>
-            <div>WITHDRAW DATE : <strong>{this.state.date}</strong></div>
-
-            <div className="mt-2">Note: This is value return from the Smart Contract <br/>
-            <a target="_blank" href="https://etherscan.io/address/0xfdAA319A95bA06150Cac68794738130dF077a396">0xfdAA319A95bA06150Cac68794738130dF077a396</a><br/>
-
-              and you can also verify the date/time from this website <a target="_blank" href="https://www.epochconverter.com/">epochconverter</a>
-              
-
+        <div className="row mt-5 ">
+          <div  className="col-lg-4 border p-2 col-md-12 col-sm-12 mx-auto text-center">
+          <strong>UNI-V2 Staked</strong>
+            <div>UNIX TIME : <strong>{this.state.univ2unix}</strong></div>
+            <div>WITHDRAW DATE : <strong>{this.state.univ2date}</strong></div>
+            
+            <div className="mt-2">Smart Contract <br/>
+            <a target="_blank" href="https://etherscan.io/address/0xA03c590340B72FEf861Df1Fef1355D18AD60B11D">0xA03c590340B72FEf861Df1Fef1355D18AD60B11D</a><br/>
             </div>
           </div>
-          <div  className="col-lg-4">
+          
+          <div className='col-lg-4 border p-2 col-md-12 col-sm-12 mx-auto text-center'>
+            <strong>BPT Staked</strong>
+            <div>UNIX TIME : <strong>{this.state.unixtime}</strong></div>
+            <div>WITHDRAW DATE : <strong>{this.state.date}</strong></div>
             
+            <div className="mt-2">Smart Contract <br/>
+            <a target="_blank" href="https://etherscan.io/address/0xfdAA319A95bA06150Cac68794738130dF077a396">0xfdAA319A95bA06150Cac68794738130dF077a396</a><br/>
+            </div>
           </div>
+          <div  className="col-lg-4 border p-2"></div>
+          
         </div>
 
         <div className="row mt-5">

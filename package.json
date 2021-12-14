@@ -9,6 +9,7 @@
     "web3": "^1.6.1"
   },
   "scripts": {
+    "dev2": "react-scripts start",
     "dev": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
