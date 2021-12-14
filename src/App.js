@@ -124,8 +124,8 @@ class App extends Component{
         <div className="row mt-5">
  
         <div  className="col-lg-12 col-md-12 col-sm-12 mx-auto text-center">
-              <div>EXCHANGE BTP TOKEN TO WPE TOKEN <br/><a target="_blank" href="https://pools.balancer.exchange/#/pool/0x5B2dC8c02728e8FB6aeA03a622c3849875A48801">https://pools.balancer.exchange/#/pool/0x5B2dC8c02728e8FB6aeA03a622c3849875A48801</a></div>
-              <div>EXCHANGE WPE TOKEN TO ETH TOKEN <br/><a target="_blank" href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0xd075e95423c5c4ba1e122cae0f4cdfa19b82881b">https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0xd075e95423c5c4ba1e122cae0f4cdfa19b82881b</a>
+              <div>EXCHANGE BTP TOKEN TO WPE TOKEN <br/><a target="_blank" href="https://pools.balancer.exchange/#/pool/0x5B2dC8c02728e8FB6aeA03a622c3849875A48801">https://pools.balancer.exchange/#/pool/ 0x5B2dC8c02728e8FB6aeA03a622c3849875A48801</a></div>
+              <div>EXCHANGE WPE TOKEN TO ETH TOKEN <br/><a target="_blank" href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0xd075e95423c5c4ba1e122cae0f4cdfa19b82881b">https://app.uniswap.org/#/swap?inputCurrency= ETH&outputCurrency=0xd075e9542 3c5c4ba1e122cae0f4cdfa19b82881b</a>
                 
               </div>
         </div>
